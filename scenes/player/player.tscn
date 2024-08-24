@@ -15,6 +15,7 @@ spring_arm = NodePath("SpringArm3D")
 shape = SubResource("BoxShape3D_7yput")
 
 [node name="SpringArm3D" type="SpringArm3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.992037, 0)
 spring_length = 5.0
 script = ExtResource("2_y2k0e")
 
