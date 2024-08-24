@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://0kq0kgj4jna8"]
+
+[ext_resource type="PackedScene" uid="uid://vylcvl0jnlgl" path="res://scenes/player/player.tscn" id="1_bop7a"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0qmv1"]
+vertex_color_use_as_albedo = true
+vertex_color_is_srgb = true
+albedo_color = Color(0.999994, 0.313374, 0.617895, 1)
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_f0ubx"]
+
+[sub_resource type="Sky" id="Sky_vm87n"]
+sky_material = SubResource("ProceduralSkyMaterial_f0ubx")
+
+[sub_resource type="Environment" id="Environment_048f2"]
+background_mode = 2
+sky = SubResource("Sky_vm87n")
+
+[node name="TestLevel" type="Node3D"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0211258, -0.2146, -0.04105)
+use_collision = true
+size = Vector3(10.2166, 0.570801, 10.9811)
+material = SubResource("StandardMaterial3D_0qmv1")
+
+[node name="Player" parent="." instance=ExtResource("1_bop7a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 1)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_048f2")
