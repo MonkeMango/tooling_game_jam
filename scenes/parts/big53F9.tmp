@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://bxv7qrxfxywqu"]
+
+[ext_resource type="Script" path="res://scenes/parts/big_machine.gd" id="1_kjvs0"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_61gvi"]
+size = Vector3(4.06116, 3.5556, 4.52197)
+
+[node name="BigMachine" type="CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.220215, 1.34829, -2.0791)
+size = Vector3(3.19629, 2.81012, 3.1582)
+script = ExtResource("1_kjvs0")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0289917, 0.113678, 0.205688)
+shape = SubResource("BoxShape3D_61gvi")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
